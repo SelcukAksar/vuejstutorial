@@ -1,0 +1,21 @@
+﻿@model VueJsTutorial.Models.UserVM
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div v-if="typeof result.model !== 'undefined'">
+    <otable ref="otable" title="List of Software Developers" v-bind:list="result.model" v-bind:headers="result.headers" v-bind:header-filters="result.tableFilters"></otable>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        var localUrl = "https://localhost:44328";
+
+
+    </script>
+
+    <script src="~/js/Views/Home/Index.bundle.js"></script>
+}
+
+@*<script src="~/js/Views/Home/tableRecordComponent.bundle.js"></script>*@

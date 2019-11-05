@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder - Copy %282%29 - Copy\**" />
+    <EmbeddedResource Remove="NewFolder - Copy %282%29 - Copy\**" />
+    <None Remove="NewFolder - Copy %282%29 - Copy\**" />
+  </ItemGroup>
+
+</Project>

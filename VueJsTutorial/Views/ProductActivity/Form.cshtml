@@ -1,0 +1,58 @@
+﻿@model ProductActivityVM
+
+@using Microsoft.AspNetCore.Hosting;
+
+@{
+	ViewData["Title"] = "Product Activity Form";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+	<h5>Product Master</h5>
+	<br/>
+	<form>
+		<div class="row product_master">
+			<div class="col-6">
+				<otextboxfor asp-for="Product.Heading" v-model-name="result.product.heading" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+				<otextboxfor asp-for="Product.Description" v-model-name="result.product.description" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+				<otextboxfor asp-for="Product.Barcode" v-model-name="result.product.barcode" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+			</div>
+			<div class="col-6">
+				<otextboxfor asp-for="Product.Email" v-model-name="result.product.email" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+				<otextboxfor asp-for="Product.Price" v-model-name="result.product.price" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+				<otextboxfor asp-for="Product.ProductionYear" v-model-name="result.product.productionYear" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+			</div>
+		</div>
+		<hr/>
+		<h5>Product Activity</h5>
+		<br/>
+		<div class="row product_activities">
+			<div class="col-6">
+				<odropdownfor v-model-name="result.productActivityForJson.ActivityTypeId" v-get-text="true" asp-for="@Model.ProductActivityForJson.ActivityTypeId" asp-items="@Model.ActivityTypes" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></odropdownfor>
+			</div>
+			<div class="col-6">
+				<odropdownfor v-model-name="result.productActivityForJson.WareHouseId" v-get-text="true" asp-for="@Model.ProductActivityForJson.WareHouseId" asp-items="@Model.WareHouses" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></odropdownfor>
+			</div>
+			<div class="col-6">
+				<otextboxfor v-model-name="result.productActivityForJson.InvoiceNumber" asp-for="@Model.ProductActivityForJson.InvoiceNumber" input-css="form-control col-8" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+			</div>
+			<div class="col-6">
+				<otextboxfor v-on:change="handleChange" v-model-name="result.productActivityForJson.ActivityDate" asp-for="@Model.ProductActivityForJson.ActivityDate" input-css="form-control col-8 date-control" has-parent="true" parent-css="form-group row" has-label="true" label-css="control-label col-4" required-css="text-red"></otextboxfor>
+			</div>
+		</div>
+		<p>
+			<button v-on:click.prevent="handleAdd" id="add" class="btn btn-primary pull-right">Add Product Detail</button>
+		</p>
+		<br /><br/>
+		<vue-list v-bind:data="result.productActivities" title="Product Activity Details" v-bind:headers="result.headers" v-on:editRow="handleEdit" v-on:deleteRow="handleDelete"></vue-list>
+	</form>
+</div>
+
+@section scripts {
+	<script type="text/javascript">
+		console.log("form");
+		var selected = 0, activity_list = {}, selectedIds = [], modelData = @Json.Serialize(Model);
+	</script>
+	<script src="~/js/component/subListComponent.js"></script>
+	<script src="~/js/view/productactivity/productactivity.js"></script>
+}
