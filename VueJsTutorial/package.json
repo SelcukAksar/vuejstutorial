@@ -13,7 +13,7 @@
     "bootstrap-material-design": "4.0.0-beta.3",
     "css-loader": "^0.28.7",
     "fuse.js": "^3.2.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "material-design-colors": "^1.0.2",
     "moment": "^2.19.1",
     "numbro": "^1.11.0",
