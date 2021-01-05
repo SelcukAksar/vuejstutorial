@@ -3,7 +3,7 @@
   "name": "VueJsTutorial",
   "private": true,
   "devDependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "@types/requirejs": "^2.1.28",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
