@@ -15,7 +15,7 @@
     "fuse.js": "^3.2.0",
     "jquery": "^3.2.1",
     "material-design-colors": "^1.0.2",
-    "moment": "^2.19.1",
+    "moment": "^2.29.4",
     "numbro": "^1.11.0",
     "popper.js": "^1.12.5",
     "style-loader": "^0.19.0",
